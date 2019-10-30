@@ -74,7 +74,7 @@ public class MoneyDoorPlugin implements GamePlugin {
 
     @Override
     public boolean isMoveOver() {
-        return isGameOver() || !isGameOver();
+        return true;
     }
 
     public void onMovePlayed(int x, int y) {
@@ -98,10 +98,11 @@ public class MoneyDoorPlugin implements GamePlugin {
     public String getGameOverMessage() {
         if (PlayerScores.get("X") > PlayerScores.get("O")) {
             return "Congratulations X with a score of " + PlayerScores.get("X") + " !";
-        } else {
+        } else if (PlayerScores.get("X") < PlayerScores.get("O")){
             return "Congratulations O with a score of " + PlayerScores.get("O") + " !";
+        } else {
+            return "There is a tie !";
         }
-
 
     }
 
